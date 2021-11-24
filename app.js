@@ -1,3 +1,32 @@
+// HTTP Module
+
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+    if (req.url === '/') {
+        res.write('Hello World');
+        // Write it to the response 
+        res.end();
+    }
+
+    if (req.url === '/api/courses') {
+        // Convert array into string using JSON.stringify
+        res.write(JSON.stringify([1, 2, 3, 4, 5]));
+        // Write it to the response
+        res.end(); 
+    }
+});
+
+server.on('connection', (socket) => {
+    console.log('New Connection.....');
+
+});
+
+server.listen(3000);
+
+console.log('Listening on port 3000...');
+
+/*
 // Events Module
 // Emit means making a noise and produce something. Here emit produces a signal.
 
@@ -10,10 +39,9 @@ const Logger = require('./logger');
 // Creating a logger object 
 const logger = new Logger();
 
-/*
 // Setting Emitter Module
-const emitter = new EventEmitter();
-*/
+// const emitter = new EventEmitter();
+
 
 // A listener is a function that will be called when an event is raised.
 // Register a listener. {on()} and {addlistener()} methods are exactly the same.
@@ -23,16 +51,18 @@ logger.on('messageLogged', (arg) => {
     console.log('Listener Called with on method', arg);
 });
 
+
+
+logger.log('message');
+
+*/
+
 /*
 // addlistener method
 emitter.addListener('messageLogged', function() {
     console.log('Listener Called with addListener method');
 });
 */
-
-logger.log('message');
-
-
 
 /*
 //File System Module
