@@ -1,3 +1,39 @@
+// Events Module
+// Emit means making a noise and produce something. Here emit produces a signal.
+
+// Setting Event Emitter class 
+const EventEmitter = require('events');
+
+// Importing Logger class from logger.js 
+const Logger = require('./logger');
+
+// Creating a logger object 
+const logger = new Logger();
+
+/*
+// Setting Emitter Module
+const emitter = new EventEmitter();
+*/
+
+// A listener is a function that will be called when an event is raised.
+// Register a listener. {on()} and {addlistener()} methods are exactly the same.
+
+// on method
+logger.on('messageLogged', (arg) => {
+    console.log('Listener Called with on method', arg);
+});
+
+/*
+// addlistener method
+emitter.addListener('messageLogged', function() {
+    console.log('Listener Called with addListener method');
+});
+*/
+
+logger.log('message');
+
+
+
 /*
 //File System Module
 
