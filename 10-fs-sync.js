@@ -1,8 +1,10 @@
 // Invoke whole Module 
-const fs = require('fs');
+// const fs = require('fs');
 
-// Invoke functions from the modules 
+// Invoke specific functions from the module 
 const {readFileSync, writeFileSync} = require('fs');
+
+console.log('start');
 
 // Read from Text File
 const first = readFileSync('./content/first.txt', 'utf8');
@@ -16,3 +18,6 @@ writeFileSync(
     `Here is the result: ${first}, ${second}`,
     { flag: 'a'} // Append the file or add to the file
 );
+
+console.log('Done with the task');
+console.log('starting next one');
