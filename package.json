@@ -1,0 +1,22 @@
+{
+  "name": "first-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1-intro.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sushantdesaur/Node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sushantdesaur/Node/issues"
+  },
+  "homepage": "https://github.com/sushantdesaur/Node#readme",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
