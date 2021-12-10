@@ -1,16 +1,22 @@
-const http = require('http');
+const express = require('express');
+const path = require('path');
 
-const fs = require('fs');
+const app = express();
 
-http.createServer((req,res)=>{
-    // const text = fs.readFileSync('./content/big.txt', 'utf-8');
-    // res.end(text);
-    const filestream = fs.createReadStream('./content/big.txt', 'utf-8');
-    filestream.on('open', ()=>{
-        filestream.pipe(res);
-    });
-    filestream.on('error', (err)=>{
-        res.end(err);
-    });
+
+// Load staticfiles
+app.use(express.static('./public'))
+
+
+
+app.get('/', (req,res)=> {
+    res.sendFile(path.resolve(__dirname, './navbar-app/index.html')); // We can use path.join also 
 })
-.listen(5000);
+
+
+app.all('*', (res,req)=>{
+    res.status(404).send("<h1>Home Pagec</h1>");
+})
+app.listen(5000, ()=>{
+    console.log('The server is listening at port 5000');
+})
