@@ -1,22 +1,11 @@
 const express = require('express');
-const path = require('path');
-
 const app = express();
+const { products } = require('./data')
 
+app.get('/', (req, res) => {
+    res.json(products);
+});
 
-// Load staticfiles
-app.use(express.static('./public'))
-
-
-
-app.get('/', (req,res)=> {
-    res.sendFile(path.resolve(__dirname, './navbar-app/index.html')); // We can use path.join also 
-})
-
-
-app.all('*', (res,req)=>{
-    res.status(404).send("<h1>Home Pagec</h1>");
-})
-app.listen(5000, ()=>{
-    console.log('The server is listening at port 5000');
+app.listen(5000, () => {
+    console.log(`Server is listening on port 5000`)
 })
